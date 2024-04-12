@@ -1,0 +1,33 @@
+
+.headerMain {
+    width: 100%;
+    height: 70px;
+    padding: 0 20px;
+    background-color: var(--background-color-white);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.headerMainInner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.headerMainLeft {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.headerMainLeftInner {
+    display: flex;
+    gap: 20px;
+}
+
+.headerMainRight {
+
+}
