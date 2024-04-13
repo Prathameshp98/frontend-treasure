@@ -1,12 +1,22 @@
-import Header from "@/components/header/header";
+"use client";
+
+import UI from "@/components/UI/ui";
+import Loader from "@/components/Loader/loading";
 
 import Styles from './page.module.css'
 import './zz_base_style.css';
 
+import useWindowDimensions from "@/Utils/useWindowDimensions";
+
 export default function Home() {
+  const result = useWindowDimensions()
+
   return (
     <div className={`${Styles.homeMain}`}>
-      <Header />
+      {result === 0
+        ? <Loader />
+        : <UI />
+      }
     </div>
   );
 }

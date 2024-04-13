@@ -28,10 +28,6 @@
     gap: 20px;
 }
 
-.headerMainRight {
-
-}
-
 @media only screen and (max-width: 800px){
     
     .headerMainLeft {

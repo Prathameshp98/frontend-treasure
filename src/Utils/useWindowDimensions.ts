@@ -1,31 +1,26 @@
-"use client"
+"use client";
 
 import { useState, useEffect } from 'react';
 
-export default function useWindowDimensions() {
-
-    const hasWindow = typeof window !== 'undefined';
-
-    function getWindowDimensions() {
-        const width: number = hasWindow ? window.innerWidth : 0;
-        return width
-    }
-
-    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+const useWindowDimensions = () => {
+    const [windowDimensions, setWindowDimensions] = useState(0);
 
     useEffect(() => {
-        if (hasWindow) {
-        const handleResize = () => {
+        function getWindowDimensions() {
+            return window.innerWidth
+        }
+
+        function handleResize() {
             setWindowDimensions(getWindowDimensions());
         }
 
+        handleResize(); // Call once to initialize
+
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
-        }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [hasWindow]);
+    }, []);
 
     return windowDimensions;
-
-
 }
+
+export default useWindowDimensions;
