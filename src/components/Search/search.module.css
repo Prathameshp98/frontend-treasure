@@ -1,0 +1,14 @@
+
+.SearchMain {
+    padding: 8px 30px;
+}
+
+.SearchMain img {
+    position: relative;
+}
+
+.SearchMain .Search {
+    height: 35px;
+    width: 200px;
+    padding-left: 30px;
+}
