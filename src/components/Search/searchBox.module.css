@@ -1,0 +1,36 @@
+
+.SearchBoxMain {
+    position: absolute;
+    top: 100px;
+    width: 500px;
+    min-height: 250px;
+    max-height: 600px;
+    border: 1px solid var(--font-offwhite);
+    border-radius: 5px;
+    background-color: var(--modal-background-color);
+}
+
+.SearchBoxMain .SearchBoxHeader {
+    padding: 15px 0;
+    margin-right: 15px;
+}
+
+.SearchBoxMain .SearchBoxHeader .SearchMain input {
+    background-color: var(--main-background-color);
+    padding-left: 30px;
+    height: 40px;
+    width: 96%;
+}
+
+.SearchBoxMain .SearchBoxHeader .SearchMain img {
+    position: relative;
+    top: 3px;
+    left: 25px;
+}
+
+@media screen and (max-width: 600px) {
+    
+    .SearchBoxMain {
+        width: 95%;
+    }
+}
