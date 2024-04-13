@@ -1,0 +1,14 @@
+
+.SocialsMain {
+    display: flex;
+    padding: 10px;
+    gap: 12px;
+}
+
+.SocialsMain img {
+    cursor: pointer;
+}
+
+.SocialsMain :nth-child(3) {
+    margin-top: 5px;
+}

@@ -1,0 +1,24 @@
+
+.HeaderListMain {
+    padding: 15px 20px;
+}
+
+.HeaderListMain ul {
+    display: flex;
+    gap: 20px;
+}
+
+.HeaderListMain ul li {
+    list-style: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.HeaderListMain ul li a {
+    color: var(--font-offwhite);
+    text-decoration: none;
+}
+
+.HeaderListMain ul li :hover {
+    color: var(--background-color-white);
+}

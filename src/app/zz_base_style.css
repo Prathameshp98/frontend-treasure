@@ -3,6 +3,10 @@
 
     /* Color Styles */
     --background-color-white: white;
+    --font-offwhite: #f0f0f0;
+    --brand-color: #00cb9c;
+    --hover-outline: #800080;
+    --outline-black: #0f0f0f;
 
     /* Text-size styles */
     --display---d1---regular: 40px;

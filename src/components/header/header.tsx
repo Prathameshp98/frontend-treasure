@@ -20,7 +20,7 @@ const Header = () => {
                 <div className={`${Styles.headerMainLeft}`}>
                     <div className={`${Styles.headerMainLeftInner}`}>
                         <Logo />
-                        {useWindowDimensions?.() >= screen.MAX_MOBILE_WIDTH && <HeaderList />}
+                        {useWindowDimensions?.() >= screen.MAX_TABLET_WIDTH && <HeaderList />}
                     </div>
                     <Search />
                 </div>
