@@ -1,13 +1,10 @@
 "use client"
 
-import { useState } from "react";
-
 import Logo from "../Logo/logo";
 import HeaderList from "../Headerlist/headerList";
 import Search from "../Search/search";
 import Socials from "../Socials/socials"; 
 import SidedrawerMenu from "../SidedrawerMenu/sidedrawerMenu";
-import SearchBox from "../Search/searchBox";
 
 import Styles from './header.module.css';
 
@@ -15,9 +12,11 @@ import useWindowDimensions from "@/Utils/useWindowDimensions";
 
 import screen from '../../Data/dimensions.json';
 
-const Header = () => {
+import HeaderProps from "./headerProps";
 
-    const[searchBox, setSearchBox] = useState<boolean>(false);
+const Header = ({
+    setSearchBox
+}: HeaderProps) => {
 
     return (
         <div className={`${Styles.headerMain}`}>
@@ -28,20 +27,17 @@ const Header = () => {
                         {useWindowDimensions?.() >= screen.MAX_TABLET_WIDTH && <HeaderList />}
                     </div>
                     <Search 
-                        setSearchBox={() => setSearchBox(true)} 
+                        setSearchBox={setSearchBox} 
                     />
                 </div>
                 <div className={`${Styles.headerMainRight}`}>
                     {useWindowDimensions?.() >= screen.MAX_SMALL_TABLET_WIDTH
                     ? <Socials />
                     : <SidedrawerMenu 
-                        setSearchBox={() => setSearchBox(true)} 
+                        setSearchBox={setSearchBox} 
                         />}
                 </div>
             </div>
-            {searchBox && <SearchBox 
-                setSearchBox={() => setSearchBox(false)}
-            />}
         </div>
     )
 }
