@@ -10,10 +10,20 @@ import search_ from '../../Data/Images/search.webp';
 import SearchBoxProps from './searchBox.d';
 
 const SearchBox = ({
-    setSearchBox
+    setSearchBox,
+    searchBox
 }: SearchBoxProps) => {
 
     const boxRef = useRef<HTMLDivElement>(null);
+    const inputRef = useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+        if(searchBox){
+            setTimeout(() => { 
+                inputRef?.current?.focus();
+            }, 200);
+        }
+    }, [searchBox]);
 
     useEffect(() => {
         function handleClickOutside(event: any) {
@@ -46,6 +56,8 @@ const SearchBox = ({
                             spellCheck="false"
                             type={'text'}
                             placeholder={'Search Docs'}
+                            ref={inputRef}
+                            tabIndex={0}
                         />
                     </div>
                 </div>
