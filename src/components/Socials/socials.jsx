@@ -1,4 +1,4 @@
-
+import Link from 'next/link';
 import Image from "next/image";
 
 import github_ from "../../Data/Images/github_.webp";
@@ -11,27 +11,42 @@ const Socials = () => {
 
     return (
         <div className={`${Styles.SocialsMain}`}>
-            <Image 
-                src={github_}
-                alt={"github"}
-                height={25}
-                width={25}
+            <Link 
+                href="https://github.com/Prathameshp98"
+                target='_blank'
                 tabIndex={0}
-            />
-            <Image 
-                src={gmail_}
-                alt={"gmail"}
-                height={25}
-                width={25}
+            >
+                <Image 
+                    src={github_}
+                    alt={"github"}
+                    height={25}
+                    width={25}
+                />
+            </Link>
+            <Link 
+                href=""
+                target='_blank'
                 tabIndex={0}
-            />
-            <Image 
-                src={twitter_}
-                alt={"twitter"}
-                height={15}
-                width={15}
+            >
+                <Image 
+                    src={gmail_}
+                    alt={"gmail"}
+                    height={25}
+                    width={25}   
+                />
+            </Link>
+            <Link 
+                href=""
+                target='_blank'
                 tabIndex={0}
-            />
+            >
+                <Image 
+                    src={twitter_}
+                    alt={"twitter"}
+                    height={15}
+                    width={15}
+                />
+            </Link>
         </div>
     )
 }

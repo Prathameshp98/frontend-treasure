@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import Header from "../header/header";
+import Footer from "../footer/footer";
 import SearchBox from "../Search/searchBox";
 
 import Styles from './ui.module.css';
@@ -17,6 +18,7 @@ const UI = () => {
                 <Header 
                     setSearchBox={() => setSearchBox(true)}
                 />
+                <Footer />
             </div>
             {searchBox && <SearchBox 
                 searchBox={searchBox}

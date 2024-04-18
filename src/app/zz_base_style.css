@@ -4,10 +4,12 @@
     /* Color Styles */
     --background-color-white: white;
     --font-offwhite: #f0f0f0;
+    --font-offwhitedark: #dcdcdc;
     --brand-color: #00cb9c;
     --hover-outline: #800080;
     --modal-background-color: #424242;
     --main-background-color: #363636;
+    --font-black: #131313;
     --outline-black: #0f0f0f;
 
     /* Text-size styles */
