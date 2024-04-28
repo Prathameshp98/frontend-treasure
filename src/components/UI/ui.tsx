@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import Header from "../header/header";
 import Body from "../Body/body";
+import Features from "../Features/features";
 import Footer from "../footer/footer";
 import SearchBox from "../Search/searchBox";
 
@@ -20,6 +21,7 @@ const UI = () => {
                     setSearchBox={() => setSearchBox(true)}
                 />
                 <Body />
+                <Features />
                 <Footer />
             </div>
             {searchBox && <SearchBox 

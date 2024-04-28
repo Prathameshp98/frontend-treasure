@@ -1,5 +1,5 @@
 'use client';
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import Image from "next/image";
 
@@ -15,6 +15,7 @@ import packageInfo from '../../Data/packageInfo.json';
 
 const Body = () => {
 
+    const copyRef = useRef<HTMLImageElement>(null);
     const[tick, setTick] = useState<boolean>(false);
     const installer = `${packageInfo["package-main"]}@${packageInfo.version}` 
 
@@ -24,7 +25,9 @@ const Body = () => {
                 setTick(true);
                 setTimeout(() => {
                     setTick(false);
-                }, 2000);
+                    setTimeout(() => copyRef?.current?.focus(), 500);
+                    
+                }, 1000);
             })
             .catch(err => {
                 // Handle errors if any
@@ -77,6 +80,13 @@ const Body = () => {
                             width={useWindowDimensions?.() >= dimension.MAX_MOBILE_WIDTH ? 25 : 20}
                             height={useWindowDimensions?.() >= dimension.MAX_MOBILE_WIDTH ? 25 : 20}
                             onClick={copyToClipboard}
+                            onKeyDown={(event: React.KeyboardEvent) => {
+                                if(event.key === 'Enter'){
+                                    copyToClipboard?.();
+                                }
+                            }}
+                            ref={copyRef}
+                            tabIndex={0}
                         />
                     }
                     <div>
