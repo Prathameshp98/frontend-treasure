@@ -17,7 +17,8 @@ const Body = () => {
 
     const copyRef = useRef<HTMLImageElement>(null);
     const[tick, setTick] = useState<boolean>(false);
-    const installer = `${packageInfo["package-main"]}@${packageInfo.version}` 
+    const installer = `${packageInfo["package-main"]}@${packageInfo.version}`;
+    const windowMobile = windowMobile; 
 
     const copyToClipboard = () => {
         navigator.clipboard.writeText(installer)
@@ -71,14 +72,14 @@ const Body = () => {
                         <Image 
                             src={_tick}
                             alt={'tick'}
-                            width={useWindowDimensions?.() >= dimension.MAX_MOBILE_WIDTH ? 25 : 20}  // eslint-disable-line react-hooks/rules-of-hooks
-                            height={useWindowDimensions?.() >= dimension.MAX_MOBILE_WIDTH ? 25 : 20}  // eslint-disable-line react-hooks/rules-of-hooks
+                            width={windowMobile}  // eslint-disable-line react-hooks/rules-of-hooks
+                            height={windowMobile}  // eslint-disable-line react-hooks/rules-of-hooks
                         /> :
                         <Image 
                             src={_clipboard}
                             alt={'copy'}
-                            width={useWindowDimensions?.() >= dimension.MAX_MOBILE_WIDTH ? 25 : 20}  // eslint-disable-line react-hooks/rules-of-hooks
-                            height={useWindowDimensions?.() >= dimension.MAX_MOBILE_WIDTH ? 25 : 20}  // eslint-disable-line react-hooks/rules-of-hooks
+                            width={windowMobile}  // eslint-disable-line react-hooks/rules-of-hooks
+                            height={windowMobile}  // eslint-disable-line react-hooks/rules-of-hooks
                             onClick={copyToClipboard}
                             onKeyDown={(event: React.KeyboardEvent) => {
                                 if(event.key === 'Enter'){

@@ -113,7 +113,7 @@ const Footer = () => {
                     </Link>
                 </div>
                 <div className={`${Styles.FooterCopyright}`}>
-                    <p>© 2024 Frontend Treasure, Inc. "Frontend Treasure" is registered trademark of Frontend, Inc. All Rights Reserved.</p>
+                    <p>© 2024 Frontend Treasure, Inc. &quot;Frontend Treasure&quot; is registered trademark of Frontend, Inc. All Rights Reserved.</p>
                     <h6>Terms of Use | Privacy Policy | Cookie Policy</h6>
                 </div>
             </div>
