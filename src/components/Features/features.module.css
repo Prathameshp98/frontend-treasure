@@ -74,8 +74,20 @@
 
 @media screen and (max-width: 800px) {
 
+    .FeaturesMain {
+        padding: 200px 0 100px;
+    }
+
     .FeaturesMain .FeaturesMainInner h2 {
-        font-size: var(--display---d1---regular);
+        font-size: var(--display---d2---regular);
+    }
+
+    .FeaturesMain .FeaturesMainInner .FeaturesCards .FeaturesCard h2 {
+        font-size: var(--heading---h2---regular);
+    }
+    
+    .FeaturesMain .FeaturesMainInner .FeaturesCards .FeaturesCard p {
+        font-size: var(--heading---h4---regular);
     }
 
 }
