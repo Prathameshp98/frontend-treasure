@@ -9,7 +9,7 @@ import Styles from './footer.module.css';
 
 import down_ from '@/Data/Images/down.webp';
 import github_ from '@/Data/Images/github.webp';
-import email_ from '@/Data/Images/envelope.webp';
+import email_ from '@/Data/Images/gmail.webp';
 import twitter_ from '@/Data/Images/twitter.webp';
 
 const dropdownData = [

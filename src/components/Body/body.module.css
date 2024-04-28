@@ -1,0 +1,163 @@
+
+.BodyMain {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(180deg, rgba(var(--bs-body-bg-rgb), 0.01), rgba(var(--bs-body-bg-rgb), 1) 85%),radial-gradient(ellipse at top left, rgba(var(--bs-primary-rgb), 0.5), transparent 50%),radial-gradient(ellipse at top right, rgba(var(--bd-accent-rgb), 0.5), transparent 50%),radial-gradient(ellipse at center right, rgba(var(--bd-violet-rgb), 0.5), transparent 50%),radial-gradient(ellipse at center left, rgba(var(--bd-pink-rgb), 0.5), transparent 50%);
+    padding-top: 160px;
+}
+
+.BodyMain .BodyMainInner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.BodyMain .LogoMain {
+    background-color: var(--brand-color);
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.BodyMain .BodyMainInner .TextMain {
+    margin: 30px;
+    width: 70%;
+    text-align: center;
+}
+
+.BodyMain .BodyMainInner .TextMain h1 {
+    font-size: var(--display---d0---regular);
+    line-height: 60px;
+    color: var(--font-offwhite);
+}
+
+.BodyMain .BodyMainInner .TextMain div {
+    padding-top: 20px;
+}
+
+.BodyMain .BodyMainInner .TextMain h4 {
+    font-size: var(--heading---h2---regular);
+    font-weight: 400;
+    padding-top: 2px;
+    color: var(--font-offwhitedark);
+}
+
+.BodyMain .BodyMainInner .PackageMain {
+    margin-top: 10px;
+    height: 70px;
+    width: 550px;
+    border: 1px solid var(--font-light-outline);
+    border-radius: 5px;
+    background-color: var(--modal-background-color);
+}
+
+.BodyMain .BodyMainInner .PackageMain img {
+    position: relative;
+    left: 500px;
+    top: 20px;
+    cursor: pointer;
+}
+
+.BodyMain .BodyMainInner .PackageMain p {
+    font-size: var(--heading---h3---regular);
+    color: var(--font-offwhitedark);
+    margin-top: -8px;
+    padding: 0px 20px;
+}
+
+.BodyMain .BodyMainInner .PackageMain p span {
+    color: var(--font-light-outline);
+    padding-right: 20px;
+}
+
+@media screen and (max-width:1050px) {
+    .BodyMain {
+        padding-top: 150px;
+    }
+
+    .BodyMain .LogoMain {
+        padding: 5px;
+        border-radius: 10px;
+    }
+
+    .BodyMain .BodyMainInner .TextMain {
+        width: 80%;
+    }
+    
+    .BodyMain .BodyMainInner .TextMain h1 {
+        font-size: var(--display---d0---regular--tablet);
+        line-height: 54px;
+    }
+    
+    .BodyMain .BodyMainInner .TextMain div {
+        padding-top: 15px;
+    }
+    
+}
+
+@media screen and (max-width: 800px) {
+
+    .BodyMain {
+        padding-top: 200px;
+    }
+
+    .BodyMain .BodyMainInner .TextMain {
+        width: 90%;
+    }
+
+    .BodyMain .BodyMainInner .TextMain h1 {
+        font-size: var(--display---d2---regular);
+        line-height: 37px;
+    }
+    
+    .BodyMain .BodyMainInner .TextMain div {
+        padding-top: 15px;
+    }
+
+    .BodyMain .BodyMainInner .TextMain div h4 {
+        font-size: 22px;
+    }
+
+    .BodyMain .BodyMainInner .PackageMain {
+        margin-top: 10px;
+        height: 60px;
+        width: 450px;
+    }
+    
+    .BodyMain .BodyMainInner .PackageMain img {
+        position: relative;
+        left: 400px;
+    }
+    
+    .BodyMain .BodyMainInner .PackageMain p {
+        font-size: var(--heading---h3---regular);
+        margin-top: -12px;
+        padding: 0px 20px;
+    }
+    
+    .BodyMain .BodyMainInner .PackageMain p span {
+        padding-right: 20px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .BodyMain .BodyMainInner .PackageMain {
+        height: 55px;
+        width: 90%;
+    }
+    
+    .BodyMain .BodyMainInner .PackageMain img {
+        position: relative;
+        left: 90%;
+    }
+    
+    .BodyMain .BodyMainInner .PackageMain p {
+        font-size: var(--heading---h5---regular);
+        margin-top: -8px;
+        padding: 0px 20px;
+    }
+    
+    .BodyMain .BodyMainInner .PackageMain p span {
+        padding-right: 20px;
+    }
+}

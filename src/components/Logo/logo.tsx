@@ -8,8 +8,8 @@ const Logo = () => {
         <div>
             <Image 
                 src={_logo}
-                width={48}
-                height={48}
+                width={54}
+                height={54}
                 alt={"frontend treasure"}
                 tabIndex={0}
             />

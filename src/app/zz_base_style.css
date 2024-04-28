@@ -4,15 +4,26 @@
     /* Color Styles */
     --background-color-white: white;
     --font-offwhite: #f0f0f0;
-    --font-offwhitedark: #dcdcdc;
-    --brand-color: #00cb9c;
+    --font-offwhitedark: #d6d6d6;
+    --font-light-outline: #727272;
+    --brand-color: #521cbd;
     --hover-outline: #800080;
     --modal-background-color: #424242;
     --main-background-color: #363636;
+    --footer-background-color: #1b1a1a;
     --font-black: #131313;
     --outline-black: #0f0f0f;
 
+    /* background shades */
+    --bd-pink-rgb: 214,51,132;
+    --bd-violet-rgb: 112.520718,44.062154,249.437846;
+    --bd-accent-rgb: 255,228,132;
+    --bs-primary-rgb: 13,110,253;
+    --bs-body-bg-rgb: 33,37,41;
+
     /* Text-size styles */
+    --display---d0---regular: 60px;
+    --display---d0---regular--tablet: 50px;
     --display---d1---regular: 40px;
     --display---d1---medium: 40px;
     --display---d1---bold: 40px;
