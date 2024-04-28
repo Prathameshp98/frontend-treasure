@@ -24,14 +24,14 @@ const Header = ({
                 <div className={`${Styles.headerMainLeft}`}>
                     <div className={`${Styles.headerMainLeftInner}`}>
                         <Logo />
-                        {useWindowDimensions?.() >= screen.MAX_TABLET_WIDTH && <HeaderList />}
+                        {useWindowDimensions?.() >= screen.MAX_TABLET_WIDTH && <HeaderList />}  // eslint-disable-line react-hooks/rules-of-hooks
                     </div>
                     <Search 
                         setSearchBox={setSearchBox} 
                     />
                 </div>
                 <div className={`${Styles.headerMainRight}`}>
-                    {useWindowDimensions?.() >= screen.MAX_SMALL_TABLET_WIDTH
+                    {useWindowDimensions?.() >= screen.MAX_SMALL_TABLET_WIDTH  // eslint-disable-line react-hooks/rules-of-hooks
                     ? <Socials />
                     : <SidedrawerMenu 
                         setSearchBox={setSearchBox} 

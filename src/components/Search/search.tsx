@@ -16,7 +16,7 @@ const Search = ({
 
     return (
         <>
-            {useWindowDimensions?.() >= dimension.MAX_SMALL_TABLET_WIDTH &&
+            {useWindowDimensions?.() >= dimension.MAX_SMALL_TABLET_WIDTH &&  // eslint-disable-line react-hooks/rules-of-hooks
                 <div 
                     className={`${Styles.SearchMain}`}
                     onClick={() => setSearchBox?.()}

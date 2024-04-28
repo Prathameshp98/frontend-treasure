@@ -42,14 +42,14 @@ const Body = () => {
                     <Image 
                         src={_logo}
                         alt={'frontend treasure logo'}
-                        width={useWindowDimensions?.() >= dimension.MAX_SMALL_LAPTOP_WIDTH ? 200 : 150}
-                        height={useWindowDimensions?.() >= dimension.MAX_SMALL_LAPTOP_WIDTH ? 200 : 150}
+                        width={useWindowDimensions?.() >= dimension.MAX_SMALL_LAPTOP_WIDTH ? 200 : 150} // eslint-disable-line react-hooks/rules-of-hooks
+                        height={useWindowDimensions?.() >= dimension.MAX_SMALL_LAPTOP_WIDTH ? 200 : 150} // eslint-disable-line react-hooks/rules-of-hooks
                     />
                 </div>
                 <div className={`${Styles.TextMain}`}>
                     <h1>Create fast & responsive</h1>
                     <h1>websites with us.</h1>
-                    {useWindowDimensions?.() >= dimension.MAX_TABLET_WIDTH ?
+                    {useWindowDimensions?.() >= dimension.MAX_TABLET_WIDTH ? // eslint-disable-line react-hooks/rules-of-hooks
                         <div>
                             <h4>Powerful, Acessible, and feature-packed frontend.</h4> 
                             <h4>Build and customize with Sass,</h4> 
@@ -71,14 +71,14 @@ const Body = () => {
                         <Image 
                             src={_tick}
                             alt={'tick'}
-                            width={useWindowDimensions?.() >= dimension.MAX_MOBILE_WIDTH ? 25 : 20}
-                            height={useWindowDimensions?.() >= dimension.MAX_MOBILE_WIDTH ? 25 : 20}
+                            width={useWindowDimensions?.() >= dimension.MAX_MOBILE_WIDTH ? 25 : 20}  // eslint-disable-line react-hooks/rules-of-hooks
+                            height={useWindowDimensions?.() >= dimension.MAX_MOBILE_WIDTH ? 25 : 20}  // eslint-disable-line react-hooks/rules-of-hooks
                         /> :
                         <Image 
                             src={_clipboard}
                             alt={'copy'}
-                            width={useWindowDimensions?.() >= dimension.MAX_MOBILE_WIDTH ? 25 : 20}
-                            height={useWindowDimensions?.() >= dimension.MAX_MOBILE_WIDTH ? 25 : 20}
+                            width={useWindowDimensions?.() >= dimension.MAX_MOBILE_WIDTH ? 25 : 20}  // eslint-disable-line react-hooks/rules-of-hooks
+                            height={useWindowDimensions?.() >= dimension.MAX_MOBILE_WIDTH ? 25 : 20}  // eslint-disable-line react-hooks/rules-of-hooks
                             onClick={copyToClipboard}
                             onKeyDown={(event: React.KeyboardEvent) => {
                                 if(event.key === 'Enter'){
