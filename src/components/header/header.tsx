@@ -24,7 +24,7 @@ const Header = ({
                 <div className={`${Styles.headerMainLeft}`}>
                     <div className={`${Styles.headerMainLeftInner}`}>
                         <Logo />
-                        {useWindowDimensions?.() >= screen.MAX_TABLET_WIDTH && <HeaderList />}  // eslint-disable-line react-hooks/rules-of-hooks
+                        {useWindowDimensions?.() >= screen.MAX_TABLET_WIDTH && <HeaderList />}  
                     </div>
                     <Search 
                         setSearchBox={setSearchBox} 

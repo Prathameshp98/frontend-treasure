@@ -18,7 +18,7 @@ const Body = () => {
     const copyRef = useRef<HTMLImageElement>(null);
     const[tick, setTick] = useState<boolean>(false);
     const installer = `${packageInfo["package-main"]}@${packageInfo.version}`;
-    const windowMobile = windowMobile; 
+    const windowMobile = useWindowDimensions?.() >= dimension.MAX_MOBILE_WIDTH ? 25 : 20; 
 
     const copyToClipboard = () => {
         navigator.clipboard.writeText(installer)
@@ -72,14 +72,14 @@ const Body = () => {
                         <Image 
                             src={_tick}
                             alt={'tick'}
-                            width={windowMobile}  // eslint-disable-line react-hooks/rules-of-hooks
-                            height={windowMobile}  // eslint-disable-line react-hooks/rules-of-hooks
+                            width={windowMobile} 
+                            height={windowMobile}
                         /> :
                         <Image 
                             src={_clipboard}
                             alt={'copy'}
-                            width={windowMobile}  // eslint-disable-line react-hooks/rules-of-hooks
-                            height={windowMobile}  // eslint-disable-line react-hooks/rules-of-hooks
+                            width={windowMobile}
+                            height={windowMobile}
                             onClick={copyToClipboard}
                             onKeyDown={(event: React.KeyboardEvent) => {
                                 if(event.key === 'Enter'){
