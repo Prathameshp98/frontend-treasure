@@ -1,0 +1,34 @@
+
+.ComingSoonMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #363636;
+    color: #f0f0f0;
+}
+
+.ComingSoonMainSub {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+}
+
+.ComingSoonMainSub h1 {
+    font-size: 40px;
+}
+
+.ComingSoonMainSub p {
+    font-size: 18px;
+}
+
+@media screen and (max-width: 500px) {
+    .ComingSoonMainSub h1 {
+        font-size: 30px;
+    }
+    
+    .ComingSoonMainSub p {
+        font-size: 15px;
+    }
+}

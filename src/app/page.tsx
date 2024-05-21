@@ -3,7 +3,7 @@
 import UI from "@/components/UI/ui";
 import Loader from "@/components/Loader/loading";
 
-import Styles from './page.module.css'
+import Styles from './page.module.css';
 import './zz_base_style.css';
 
 import useWindowDimensions from "@/Utils/useWindowDimensions";

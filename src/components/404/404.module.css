@@ -1,0 +1,33 @@
+
+._404Main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #363636;
+    color: #f0f0f0;
+}
+
+._404MainSub {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+._404MainSub h1 {
+    font-size: 100px;
+}
+
+._404MainSub p {
+    font-size: 25px;
+}
+
+@media screen and (max-width: 500px) {
+    ._404MainSub h1 {
+        font-size: 70px;
+    }
+    
+    ._404MainSub p {
+        font-size: 20px;
+    }
+}
