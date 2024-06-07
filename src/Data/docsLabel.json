@@ -1,0 +1,8 @@
+[
+    {
+        "title": "Forms",
+        "options": [
+            "Input", "Textarea", "Floating Label", "Checkbox", "Radio", "Switch"
+        ]
+    }
+]

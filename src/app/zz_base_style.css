@@ -17,6 +17,7 @@
     --outline-black: #0f0f0f;
 
     /* background shades */
+    --brand-color-opace: 82,28,189,0.3;
     --bd-pink-rgb: 214,51,132;
     --bd-violet-rgb: 112.520718,44.062154,249.437846;
     --bd-accent-rgb: 255,228,132;
@@ -74,4 +75,16 @@
     --less--important--info---uppercase-m: 10px;
     --less--important--info---italic: 10px;
     --less--important--info---underline-r: 10px;
+
+    /* Font weight styles */
+    --font-weight-100: 100;
+    --font-weight-200: 200;
+    --font-weight-300: 300;
+    --font-weight-400: 400;
+    --font-weight-500: 500;
+    --font-weight-600: 600;
+    --font-weight-700: 700;
+    --font-weight-800: 800;
+    --font-weight-900: 900;
+
 }

@@ -1,0 +1,25 @@
+[
+    {
+        "name": "Input",
+        "example": "<img src='https://imgtr.ee/images/2024/06/01/d9986ef22055f7ecd509339a9e586948.png' alt='d9986ef22055f7ecd509339a9e586948.png' />",
+        "code": "<Input\n   \tlabel={label}\n   \ttype={type}\n    \tplaceholder={placeholder}\n    \tdisabled={disabled}\n/>",
+        "componentProperties": [
+            {
+                "name": "type",
+                "explanation": "defines the input type."
+            },
+            {
+                "name": "placeholder",
+                "explanation": "defines the placeholder inside the input."
+            },
+            {
+                "name": "disabled",
+                "explanation": "pass true/false to enable/disable the input."
+            },
+            {
+                "name": "label",
+                "explanation": "pass the label for the input."
+            }
+        ]
+    }
+]
