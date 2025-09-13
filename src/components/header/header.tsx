@@ -2,7 +2,11 @@
 
 import { memo } from "react";
 import { useWindowDimensions } from "@/hooks";
-import { classNames } from "@/utils";
+
+// Utility function to conditionally join class names
+const classNames = (...classes: (string | undefined | null | false)[]): string => {
+  return classes.filter(Boolean).join(' ');
+};
 import Logo from "../Logo/logo";
 import HeaderList from "../Headerlist/headerList";
 import Search from "../Search/search";

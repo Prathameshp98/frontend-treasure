@@ -2,7 +2,11 @@
 import { useState, useRef, useCallback, memo } from "react";
 import Image from "next/image";
 import { useWindowDimensions } from "@/hooks";
-import { classNames } from "@/utils";
+
+// Utility function to conditionally join class names
+const classNames = (...classes: (string | undefined | null | false)[]): string => {
+  return classes.filter(Boolean).join(' ');
+};
 
 import _logo from '../../Data/Images/t-mobile-big.webp';
 import _clipboard from '../../Data/Images/paste.webp';

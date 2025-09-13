@@ -4,7 +4,22 @@ import { useState, useCallback } from 'react';
 import Image from 'next/image';
 import { DocsOption } from '@/types/docs.types';
 import { useToggle } from '@/hooks';
-import { conditionalClasses } from '@/utils';
+
+// Utility function for conditional CSS classes
+const conditionalClasses = (
+  baseClass: string,
+  conditionalClasses: Record<string, boolean>
+): string => {
+  const classNames = (...classes: (string | undefined | null | false)[]): string => {
+    return classes.filter(Boolean).join(' ');
+  };
+  
+  const additional = Object.entries(conditionalClasses)
+    .filter(([, condition]) => condition)
+    .map(([className]) => className);
+  
+  return classNames(baseClass, ...additional);
+};
 import styles from './docsSidebar.module.css';
 import googleForms from '../../Data/Images/google-forms.webp';
 import { DOCS_DATA } from '../../constants/docs.constants';

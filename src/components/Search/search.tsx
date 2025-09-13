@@ -2,7 +2,11 @@
 import { memo } from "react";
 import Image from "next/image";
 import { useWindowDimensions } from "@/hooks";
-import { classNames } from "@/utils";
+
+// Utility function to conditionally join class names
+const classNames = (...classes: (string | undefined | null | false)[]): string => {
+  return classes.filter(Boolean).join(' ');
+};
 
 import styles from './search.module.css';
 import search_ from '../../Data/Images/search_.webp';

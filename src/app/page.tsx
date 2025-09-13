@@ -3,7 +3,11 @@
 import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import { useWindowDimensions } from '@/hooks';
-import { classNames } from '@/utils';
+
+// Utility function to conditionally join class names
+const classNames = (...classes: (string | undefined | null | false)[]): string => {
+  return classes.filter(Boolean).join(' ');
+};
 import ErrorBoundary from '@/components/ErrorBoundary/ErrorBoundary';
 import Loader from '@/components/Loader/loading';
 

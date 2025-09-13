@@ -2,7 +2,22 @@
 
 import { memo } from "react";
 import { useToggle } from "@/hooks";
-import { conditionalClasses } from "@/utils";
+
+// Utility function for conditional CSS classes
+const conditionalClasses = (
+  baseClass: string,
+  conditionalClasses: Record<string, boolean>
+): string => {
+  const classNames = (...classes: (string | undefined | null | false)[]): string => {
+    return classes.filter(Boolean).join(' ');
+  };
+  
+  const additional = Object.entries(conditionalClasses)
+    .filter(([, condition]) => condition)
+    .map(([className]) => className);
+  
+  return classNames(baseClass, ...additional);
+};
 import Header from "../header/header";
 import Body from "../Body/body";
 import Features from "../Features/features";

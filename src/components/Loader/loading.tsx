@@ -1,6 +1,15 @@
 
 import { memo } from 'react';
-import { classNames, ARIA_LABELS } from '@/utils';
+
+// Utility function to conditionally join class names
+const classNames = (...classes: (string | undefined | null | false)[]): string => {
+  return classes.filter(Boolean).join(' ');
+};
+
+// ARIA labels for accessibility
+const ARIA_LABELS = {
+  loading: 'Loading content, please wait',
+} as const;
 
 import styles from './loader.module.css';
 
