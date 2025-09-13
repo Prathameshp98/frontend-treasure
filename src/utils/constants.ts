@@ -21,3 +21,13 @@ export const Z_INDEX = {
   popover: 1050,
   tooltip: 1060,
 } as const;
+
+// ARIA labels for accessibility
+export const ARIA_LABELS = {
+  loading: 'Loading content, please wait',
+  search: 'Search components',
+  menu: 'Navigation menu',
+  close: 'Close',
+  expand: 'Expand section',
+  collapse: 'Collapse section',
+} as const;
