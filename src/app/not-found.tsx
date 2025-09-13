@@ -3,17 +3,17 @@
 import _404 from "@/components/404/404";
 import Loader from '@/components/Loader/loading';
 
-import useWindowDimensions from "@/Utils/useWindowDimensions";
+import useWindowDimensions from "@/hooks/useWindowDimensions";
 
 import './zz_base_style.css';
 
 const Custom404 = () => {
 
-    const result = useWindowDimensions(); // eslint-disable-line react-hooks/rules-of-hooks
+    const { width } = useWindowDimensions(); // eslint-disable-line react-hooks/rules-of-hooks
 
     return (
         <div>
-            {result === 0
+            {width === 0
                 ? <Loader />
                 : <_404 />
             }
