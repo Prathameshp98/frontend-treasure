@@ -1,105 +1,110 @@
 'use client';
-import { useState, useRef } from "react";
-
+import { useState, useRef, useCallback, memo } from "react";
 import Image from "next/image";
+import { useWindowDimensions } from "@/hooks";
+import { classNames } from "@/utils";
 
 import _logo from '../../Data/Images/t-mobile-big.webp';
 import _clipboard from '../../Data/Images/paste.webp';
 import _tick from '../../Data/Images/tick.webp';
 
-import Styles from './body.module.css';
-
-import useWindowDimensions from "@/Utils/useWindowDimensions";
+import styles from './body.module.css';
 import dimension from '../../Data/dimensions.json';
 import packageInfo from '../../Data/packageInfo.json';
 
-const Body = () => {
-
-    const copyRef = useRef<HTMLImageElement>(null);
-    const[tick, setTick] = useState<boolean>(false);
+const Body = memo(() => {
+    const copyRef = useRef<HTMLButtonElement>(null);
+    const [isCopied, setIsCopied] = useState<boolean>(false);
+    const { width } = useWindowDimensions();
+    
     const installer = `${packageInfo["package-main"]}@${packageInfo.version}`;
-    const windowMobile = useWindowDimensions?.() >= dimension.MAX_MOBILE_WIDTH ? 25 : 20; 
+    const iconSize = width >= dimension.MAX_MOBILE_WIDTH ? 25 : 20;
+    const logoSize = width >= dimension.MAX_SMALL_LAPTOP_WIDTH ? 200 : 150;
 
-    const copyToClipboard = () => {
-        navigator.clipboard.writeText(installer)
-            .then(() => {
-                setTick(true);
-                setTimeout(() => {
-                    setTick(false);
-                    setTimeout(() => copyRef?.current?.focus(), 500);
-                    
-                }, 1000);
-            })
-            .catch(err => {
-                // Handle errors if any
-                console.error('Failed to copy text to clipboard:', err);
-            });
-    }
+    const copyToClipboard = useCallback(async () => {
+        try {
+            await navigator.clipboard.writeText(installer);
+            setIsCopied(true);
+            setTimeout(() => {
+                setIsCopied(false);
+                setTimeout(() => copyRef?.current?.focus(), 500);
+            }, 1000);
+        } catch (err) {
+            console.error('Failed to copy text to clipboard:', err);
+        }
+    }, [installer]);
 
     return (
-        <div className={`${Styles.BodyMain}`}>
-            <div className={`${Styles.BodyMainInner}`}>
-                <div className={`${Styles.LogoMain}`}>
+        <section className={classNames(styles.BodyMain)} role="main">
+            <div className={styles.BodyMainInner}>
+                <div className={styles.LogoMain}>
                     <Image 
                         src={_logo}
-                        alt={'frontend treasure logo'}
-                        width={useWindowDimensions?.() >= dimension.MAX_SMALL_LAPTOP_WIDTH ? 200 : 150} // eslint-disable-line react-hooks/rules-of-hooks
-                        height={useWindowDimensions?.() >= dimension.MAX_SMALL_LAPTOP_WIDTH ? 200 : 150} // eslint-disable-line react-hooks/rules-of-hooks
+                        alt="Frontend Treasure logo"
+                        width={logoSize}
+                        height={logoSize}
+                        priority
                     />
                 </div>
-                <div className={`${Styles.TextMain}`}>
+                <div className={styles.TextMain}>
                     <h1>Create fast & responsive</h1>
                     <h1>websites with us.</h1>
-                    {useWindowDimensions?.() >= dimension.MAX_TABLET_WIDTH ? // eslint-disable-line react-hooks/rules-of-hooks
+                    {width >= dimension.MAX_TABLET_WIDTH ? (
                         <div>
-                            <h4>Powerful, Acessible, and feature-packed frontend.</h4> 
+                            <h4>Powerful, Accessible, and feature-packed frontend.</h4> 
                             <h4>Build and customize with Sass,</h4> 
                             <h4>utilize prebuilt grid system and components,</h4>  
                             <h4>and bring projects to life with powerful JavaScript packages.</h4>
                         </div>
-                        :
+                    ) : (
                         <div>
                             <h4>
-                                Powerful, Acessible, and feature-packed frontend.
+                                Powerful, Accessible, and feature-packed frontend.
                                 Build and customize with Sass,
                                 and bring projects to life with powerful JavaScript packages.
                             </h4>
                         </div>
-                    }
+                    )}
                 </div>
-                <div className={`${Styles.PackageMain}`}>
-                    {tick ?
-                        <Image 
-                            src={_tick}
-                            alt={'tick'}
-                            width={windowMobile} 
-                            height={windowMobile}
-                        /> :
-                        <Image 
-                            src={_clipboard}
-                            alt={'copy'}
-                            width={windowMobile}
-                            height={windowMobile}
+                <div className={styles.PackageMain}>
+                    {isCopied ? (
+                        <div className={styles.iconContainer} aria-live="polite">
+                            <Image 
+                                src={_tick}
+                                alt="Copied successfully"
+                                width={iconSize} 
+                                height={iconSize}
+                            />
+                        </div>
+                    ) : (
+                        <button
+                            type="button"
+                            className={styles.copyButton}
                             onClick={copyToClipboard}
-                            onKeyDown={(event: React.KeyboardEvent) => {
-                                if(event.key === 'Enter'){
-                                    copyToClipboard?.();
-                                }
-                            }}
                             ref={copyRef}
-                            tabIndex={0}
-                        />
-                    }
-                    <div>
+                            aria-label="Copy installation command to clipboard"
+                        >
+                            <Image 
+                                src={_clipboard}
+                                alt=""
+                                width={iconSize}
+                                height={iconSize}
+                                aria-hidden="true"
+                            />
+                        </button>
+                    )}
+                    <div className={styles.commandContainer}>
                         <p>
-                            <span>$</span>
-                            {installer}
+                            <span aria-hidden="true">$</span>
+                            <code>{installer}</code>
                         </p>
                     </div>
                 </div>
             </div>
-        </div>
-    )
-}
+        </section>
+    );
+});
+
+Body.displayName = 'Body';
 
 export default Body;

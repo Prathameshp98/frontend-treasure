@@ -1,42 +1,56 @@
 
+import { memo } from "react";
 import Image from "next/image";
+import { useWindowDimensions } from "@/hooks";
+import { classNames } from "@/utils";
 
-import Styles from './search.module.css';
-
+import styles from './search.module.css';
 import search_ from '../../Data/Images/search_.webp';
-
-import useWindowDimensions from "@/Utils/useWindowDimensions";
 import dimension from '../../Data/dimensions.json';
-
 import SearchProps from './search.d';
 
-const Search = ({
-    setSearchBox
+const Search = memo(({
+    onSearchOpen
 }: SearchProps) => {
+    const { width } = useWindowDimensions();
+
+    if (width < dimension.MAX_SMALL_TABLET_WIDTH) {
+        return null;
+    }
 
     return (
-        <>
-            {useWindowDimensions?.() >= dimension.MAX_SMALL_TABLET_WIDTH &&  // eslint-disable-line react-hooks/rules-of-hooks
-                <div 
-                    className={`${Styles.SearchMain}`}
-                    onClick={() => setSearchBox?.()}
-                >
-                    <Image 
-                        src={search_}
-                        alt={'search'}
-                        height={18}
-                        width={18}
-                    />
-                    <input 
-                        className={`${Styles.Search}`}
-                        spellCheck="false"
-                        type={'text'}
-                        placeholder={'Search'}
-                    />
-                </div>
-            }
-        </>   
-    )
-}
+        <div 
+            className={classNames(styles.SearchMain)}
+            onClick={onSearchOpen}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    onSearchOpen?.();
+                }
+            }}
+            aria-label="Open search"
+        >
+            <Image 
+                src={search_}
+                alt=""
+                height={18}
+                width={18}
+                aria-hidden="true"
+            />
+            <input 
+                className={styles.Search}
+                spellCheck="false"
+                type="text"
+                placeholder="Search"
+                readOnly
+                tabIndex={-1}
+            />
+        </div>
+    );
+});
+
+Search.displayName = 'Search';
 
 export default Search;

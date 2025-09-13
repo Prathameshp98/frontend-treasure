@@ -1,45 +1,47 @@
-"use client"
+"use client";
 
+import { memo } from "react";
+import { useWindowDimensions } from "@/hooks";
+import { classNames } from "@/utils";
 import Logo from "../Logo/logo";
 import HeaderList from "../Headerlist/headerList";
 import Search from "../Search/search";
 import Socials from "../Socials/socials"; 
 import SidedrawerMenu from "../SidedrawerMenu/sidedrawerMenu";
 
-import Styles from './header.module.css';
-
-import useWindowDimensions from "@/Utils/useWindowDimensions";
-
+import styles from './header.module.css';
 import screen from '../../Data/dimensions.json';
-
 import HeaderProps from "./headerProps";
 
-const Header = ({
-    setSearchBox
+const Header = memo(({
+    onSearchOpen
 }: HeaderProps) => {
+    const { width } = useWindowDimensions();
 
     return (
-        <div className={`${Styles.headerMain}`}>
-            <div className={`${Styles.headerMainInner}`}>
-                <div className={`${Styles.headerMainLeft}`}>
-                    <div className={`${Styles.headerMainLeftInner}`}>
+        <header className={classNames(styles.headerMain)} role="banner">
+            <div className={styles.headerMainInner}>
+                <div className={styles.headerMainLeft}>
+                    <div className={styles.headerMainLeftInner}>
                         <Logo />
-                        {useWindowDimensions?.() >= screen.MAX_TABLET_WIDTH && <HeaderList />}  
+                        {width >= screen.MAX_TABLET_WIDTH && <HeaderList />}  
                     </div>
                     <Search 
-                        setSearchBox={setSearchBox} 
+                        onSearchOpen={onSearchOpen} 
                     />
                 </div>
-                <div className={`${Styles.headerMainRight}`}>
-                    {useWindowDimensions?.() >= screen.MAX_SMALL_TABLET_WIDTH  // eslint-disable-line react-hooks/rules-of-hooks
+                <div className={styles.headerMainRight}>
+                    {width >= screen.MAX_SMALL_TABLET_WIDTH
                     ? <Socials />
                     : <SidedrawerMenu 
-                        setSearchBox={setSearchBox} 
+                        onSearchOpen={onSearchOpen} 
                         />}
                 </div>
             </div>
-        </div>
-    )
-}
+        </header>
+    );
+});
+
+Header.displayName = 'Header';
 
 export default Header;

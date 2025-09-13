@@ -1,19 +1,264 @@
-
 .docsContentMain {
     width: 100%;
-    padding: 40px;
+    max-width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.docsContentHeader {
+    text-align: center;
+    padding: 3rem 2rem 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.docsContentHeader h1 {
+    margin: 0 0 1rem 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.docsContentHeader p {
+    margin: 0;
+    font-size: 1.125rem;
+    color: #6c757d;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .docsContentMainInner {
+    max-width: 1200px;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    margin: 0 auto;
+    padding: 2rem;
+    box-sizing: border-box;
 }
 
 .component {
-    width: 750px;
+    margin-bottom: 3rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.component:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+}
+
+.componentHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 2rem 0;
+}
+
+.componentTitle {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #202124;
+}
+
+.componentBadge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.componentContent {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.previewSection h3,
+.codeSection h3,
+.propertiesSection h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #495057;
+}
+
+.example {
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border: 2px dashed #dee2e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+}
+
+.liveExample {
+    width: 100%;
+}
+
+.mockComponent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.mockLabel {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #495057;
+}
+
+.mockInput {
+    padding: 0.75rem;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: white;
+    transition: border-color 0.2s ease;
+}
+
+.mockInput:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.previewImage {
+    border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+}
+
+.codeHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.copyButton {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.copyButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.copyButton span {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+}
+
+.copiedText {
+    color: #28a745;
+    background: rgba(40, 167, 69, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(40, 167, 69, 0.3);
+}
+
+.code {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 1.5rem;
+    border-radius: 12px;
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border: 1px solid #333;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.code code {
+    color: inherit;
+    background: none;
+    padding: 0;
+    font-size: inherit;
+}
+
+.propertiesSection {
+    padding: 0 2rem 2rem;
+    border-top: 1px solid #e9ecef;
+    margin-top: 1rem;
+    padding-top: 2rem;
+}
+
+.propertiesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.propertyCard {
+    background: #f8f9fa;
+    padding: 1.25rem;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.propertyCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.propertyName {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.propertyDescription {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #6c757d;
 }
 
 .component h3 {
@@ -67,4 +312,230 @@
     border-radius: 5px;
     font-weight: var(--font-weight-500);
     background-color: rgba(var(--brand-color-opace));
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .docsContentMainInner {
+        max-width: 100%;
+        padding: 1.5rem;
+    }
+    
+    .componentContent {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .propertiesGrid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .docsContentMain {
+        height: auto;
+        min-height: 100vh;
+        width: 100% !important;
+    }
+    
+    .docsContentMainInner {
+        padding: 1rem;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .componentContent {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .propertiesGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .docsContentMain {
+        height: auto;
+        min-height: 100vh;
+        width: 100% !important;
+    }
+    
+    .docsContentHeader {
+        padding: 1.5rem 1rem;
+    }
+    
+    .docsContentHeader h1 {
+        font-size: 1.75rem;
+        line-height: 1.2;
+    }
+    
+    .docsContentHeader p {
+        font-size: 1rem;
+    }
+    
+    .docsContentMainInner {
+        padding: 1rem;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .component {
+        margin-bottom: 1.5rem;
+        border-radius: 12px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .componentHeader {
+        padding: 1rem 1rem 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    
+    .componentTitle {
+        font-size: 1.5rem;
+        word-break: break-word;
+    }
+    
+    .componentContent {
+        padding: 1rem;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .example {
+        padding: 1.5rem;
+        min-height: 150px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .code {
+        font-size: 0.8rem;
+        padding: 1rem;
+        line-height: 1.4;
+        width: 100%;
+        box-sizing: border-box;
+        word-break: break-all;
+    }
+    
+    .copyButton {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .propertiesSection {
+        padding: 0 1rem 1rem;
+        padding-top: 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .propertiesGrid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+        width: 100%;
+    }
+    
+    .propertyCard {
+        padding: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .previewImage {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 500px) {
+    .docsContentMain {
+        width: 100% !important;
+    }
+    
+    .docsContentHeader {
+        padding: 1rem 0.75rem;
+    }
+    
+    .docsContentHeader h1 {
+        font-size: 1.5rem;
+    }
+    
+    .docsContentMainInner {
+        padding: 0.75rem;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .component {
+        margin-bottom: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .componentHeader {
+        padding: 0.75rem 0.75rem 0;
+    }
+    
+    .componentTitle {
+        font-size: 1.25rem;
+        word-break: break-word;
+    }
+    
+    .componentBadge {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.7rem;
+    }
+    
+    .componentContent {
+        padding: 0.75rem;
+        gap: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .example {
+        padding: 1rem;
+        min-height: 120px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .code {
+        font-size: 0.75rem;
+        padding: 0.75rem;
+        width: 100%;
+        box-sizing: border-box;
+        word-break: break-all;
+        overflow-wrap: break-word;
+    }
+    
+    .propertiesSection {
+        padding: 0 0.75rem 0.75rem;
+        padding-top: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .propertyCard {
+        padding: 0.75rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .propertyName {
+        font-size: 0.8rem;
+        padding: 0.2rem 0.6rem;
+        word-break: break-word;
+    }
+    
+    .propertyDescription {
+        font-size: 0.8rem;
+        word-break: break-word;
+    }
 }

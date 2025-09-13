@@ -1,5 +1,5 @@
 
 export default interface SearchBoxProps {
-    setSearchBox?: () => void;
-    searchBox?: boolean;
+    onClose?: () => void;
+    isOpen?: boolean;
 }

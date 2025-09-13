@@ -1,4 +1,4 @@
 
 export default interface HeaderProps {
-    setSearchBox?: () => void;
+    onSearchOpen?: () => void;
 }

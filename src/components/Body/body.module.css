@@ -76,6 +76,11 @@
     padding-right: 20px;
 }
 
+.PackageMain .copyButton {
+    background-color: transparent;
+    border: none;
+}
+
 @media screen and (max-width:1050px) {
     .BodyMain {
         padding-top: 150px;

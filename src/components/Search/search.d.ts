@@ -1,4 +1,4 @@
 
 export default interface SearchProps {
-    setSearchBox?: () => void;
+    onSearchOpen?: () => void;
 }

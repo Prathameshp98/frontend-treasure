@@ -1,35 +1,42 @@
-"use client"
+"use client";
 
-import { useState } from "react";
-
+import { memo } from "react";
+import { useToggle } from "@/hooks";
+import { conditionalClasses } from "@/utils";
 import Header from "../header/header";
 import Body from "../Body/body";
 import Features from "../Features/features";
 import Footer from "../footer/footer";
 import SearchBox from "../Search/searchBox";
 
-import Styles from './ui.module.css';
+import styles from './ui.module.css';
 
-const UI = () => {
+const UI = memo(() => {
+  const { isOpen: isSearchOpen, open: openSearch, close: closeSearch } = useToggle(false);
 
-    const[searchBox, setSearchBox] = useState<boolean>(false);
+  return (
+    <div className={styles.UIMain}>
+      <div 
+        className={conditionalClasses(styles.mainContainer, {
+          [styles.MainContainerBlur]: isSearchOpen
+        })}
+      >
+        <Header onSearchOpen={openSearch} />
+        <Body />
+        <Features />
+        <Footer />
+      </div>
+      
+      {isSearchOpen && (
+        <SearchBox 
+          isOpen={isSearchOpen}
+          onClose={closeSearch}
+        />
+      )}
+    </div>
+  );
+});
 
-    return (
-        <div className={`${Styles.UIMain}`}>
-            <div className={`${searchBox ? Styles.MainContainerBlur : ''}`}>
-                <Header 
-                    setSearchBox={() => setSearchBox(true)}
-                />
-                <Body />
-                <Features />
-                <Footer />
-            </div>
-            {searchBox && <SearchBox 
-                searchBox={searchBox}
-                setSearchBox={() => setSearchBox(false)}
-            />}
-        </div>
-    )
-}
+UI.displayName = 'UI';
 
 export default UI;

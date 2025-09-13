@@ -1,22 +1,36 @@
 "use client";
 
-import UI from "@/components/UI/ui";
-import Loader from "@/components/Loader/loading";
+import { Suspense } from 'react';
+import dynamic from 'next/dynamic';
+import { useWindowDimensions } from '@/hooks';
+import { classNames } from '@/utils';
+import ErrorBoundary from '@/components/ErrorBoundary/ErrorBoundary';
+import Loader from '@/components/Loader/loading';
 
-import Styles from './page.module.css';
+import styles from './page.module.css';
 import './zz_base_style.css';
 
-import useWindowDimensions from "@/Utils/useWindowDimensions";
+// Dynamic import for better code splitting
+const UI = dynamic(() => import('@/components/UI/ui'), {
+  loading: () => <Loader />,
+  ssr: false,
+});
 
 export default function Home() {
-  const result = useWindowDimensions(); // eslint-disable-line react-hooks/rules-of-hooks
+  const { width: windowWidth, isMobile } = useWindowDimensions();
+  const isInitialized = windowWidth > 0;
 
   return (
-    <div className={`${Styles.homeMain}`}>
-      {result === 0
-        ? <Loader />
-        : <UI />
-      }
-    </div>
+    <ErrorBoundary>
+      <main className={classNames(styles.homeMain)} role="main">
+        <Suspense fallback={<Loader />}>
+          {!isInitialized ? (
+            <Loader />
+          ) : (
+            <UI />
+          )}
+        </Suspense>
+      </main>
+    </ErrorBoundary>
   );
 }
